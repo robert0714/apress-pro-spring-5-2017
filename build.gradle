@@ -1,56 +1,58 @@
 ext {
 	//spring libs
-	springVersion = '5.0.10.RELEASE'
-	bootVersion = '2.0.6.RELEASE'
-	springDataVersion = '2.0.11.RELEASE'
-	springAmqpVersion = '2.1.0.RELEASE'
-	springSecurityVersion = '5.0.2.BUILD-SNAPSHOT'
-	springBatchVersion = '4.0.0.RELEASE'
-	springIntegrationVersion = '5.0.2.BUILD-SNAPSHOT'
+	//springVersion = '5.2.25.RELEASE'
+	springVersion = '5.1.20.RELEASE'
+	bootVersion = '2.0.9.RELEASE'
+	// springDataVersion = '2.3.9.RELEASE'
+	springDataVersion = '2.1.21.RELEASE'
+	springAmqpVersion = '2.2.22.RELEASE'
+	springSecurityVersion = '5.3.13.RELEASE'
+	springBatchVersion = '4.2.8.RELEASE'
+	springIntegrationVersion = '5.3.10.RELEASE'
 
 	//logging libs
-	slf4jVersion = '1.7.25'
-	logbackVersion = '1.2.3'
+	slf4jVersion = '2.0.9'
+	logbackVersion = '1.2.12'
 
-	groovyVersion = '2.4.5'
+	groovyVersion = '4.0.15'
 	guavaVersion = '21.0'
 
-	aspectjVersion = '1.8.13'
+	aspectjVersion = '1.9.20.1'
 	derbyVersion = '10.13.1.1'
-	dbcpVersion = '2.1'
-	mysqlVersion = '6.0.6'
-	h2Version = '2.0.206'
+	dbcpVersion = '2.11.0'
+	mysqlVersion = '8.2.0'
+	h2Version = '2.2.224'
 	jodaVersion = '2.9.9'
 	utVersion = '6.0.1.GA'
 	javaxValidationVersion = '2.0.0.Beta2'
 	javaElVersion = '3.0.1-b04'
 	glasshfishELVersion = '2.2.1-b05'
 	jmsVersion = '2.0'
-	artemisVersion = '2.4.0'
-	hornetqVersion = '2.4.0.Final'
+	artemisVersion = '2.10.1'
+	hornetqVersion = '2.4.9.Final'
 	castorVersion = '1.4.1'
-	jacksonVersion = '2.9.0'
-	httpclientVersion = '4.5.3'
+	jacksonVersion = '2.16.0'
+	httpclientVersion = '4.5.14'
 	poiVersion = '4.1.2'
 	tilesVersion = '3.0.7'
 	bootstrapVersion = '3.3.7-1'
 	thymeSecurityVersion = '3.0.2.RELEASE'
-	jQueryVersion = '3.2.1'
-	twsVersion = '9.0.0.M22'
+	jQueryVersion = '3.6.4'
+	twsVersion = '9.0.83'
 	annotationApiVersion = '1.3.2'
 
 	//persistency libraries
-	hibernateVersion = '5.6.5.Final'
+	hibernateVersion = '5.6.15.Final'
 	hibernateJpaVersion = '1.0.2.Final'
 	hibernateValidatorVersion = '5.4.3.Final' //6.0.0.Beta2
-	atomikosVersion = '4.0.4'
+	atomikosVersion = '5.0.9'
 
 	//testing libs
-	mockitoVersion = '2.0.2-beta'
-	junitVersion = '4.12'
-	hamcrestVersion = '1.3'
-	dbunitVersion = '2.7.2'
-	junit5Version = '5.3.1'
+	mockitoVersion = '3.12.4'
+	junitVersion = '4.13.2'
+	hamcrestVersion = '2.2'
+	dbunitVersion = '2.7.3'
+	junit5Version = '5.9.3'
 
 	spring = [
 			context           : "org.springframework:spring-context:$springVersion",
@@ -88,7 +90,7 @@ ext {
 			core       : "org.hibernate:hibernate-core:$hibernateVersion",
 			envers     : "org.hibernate:hibernate-envers:$hibernateVersion",
 			jpaApi     : "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:$hibernateJpaVersion",
-			querydslapt: "com.mysema.querydsl:querydsl-apt:2.7.1",
+			querydslapt: "com.mysema.querydsl:querydsl-apt:3.7.4",
 			tx         : "com.atomikos:transactions-hibernate4:$atomikosVersion"
 	]
 
@@ -115,10 +117,10 @@ ext {
 	testing = [
 			junit       : "junit:junit:$junitVersion",
 			junit5Engine: "org.junit.jupiter:junit-jupiter-engine:$junit5Version",
-			junit5Runner: "org.junit.platform:junit-platform-runner:1.0.0-M4",
-			mockito     : "org.mockito:mockito-all:$mockitoVersion",
-			easymock    : "org.easymock:easymock:3.4",
-			jmock       : "org.jmock:jmock:2.8.2",
+			junit5Runner: "org.junit.platform:junit-platform-runner:1.10.1",
+			mockito     : "org.mockito:mockito-core:$mockitoVersion",
+			easymock    : "org.easymock:easymock:5.2.0",
+			jmock       : "org.jmock:jmock:2.12.0",
 			hamcrestCore: "org.hamcrest:hamcrest-core:$hamcrestVersion",
 			hamcrestLib : "org.hamcrest:hamcrest-library:$hamcrestVersion",
 			dbunit      : "org.dbunit:dbunit:$dbunitVersion"
@@ -128,7 +130,7 @@ ext {
 	misc = [
 			slf4jJcl       : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
 			logback        : "ch.qos.logback:logback-classic:$logbackVersion",
-			groovy         : "org.codehaus.groovy:groovy-all:$groovyVersion",
+			groovy         : "org.apache.groovy:groovy-all:$groovyVersion",
 			inject         : "javax.inject:javax.inject:1",
 			validation     : "javax.validation:validation-api:$javaxValidationVersion",
 			aspectjweaver  : "org.aspectj:aspectjweaver:$aspectjVersion",
@@ -147,7 +149,7 @@ ext {
 			castor         : "org.codehaus.castor:castor-xml:$castorVersion",
 			jacksonDatabind: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
 			poi            : "org.apache.poi:poi:$poiVersion",
-			io             : "commons-io:commons-io:2.7",
+			io             : "commons-io:commons-io:2.15.0",
 	]
 
 	web = [
@@ -164,17 +166,18 @@ ext {
 	]
 
 	react = [
-			projReactorIpc: "io.projectreactor.ipc:reactor-netty:0.7.15.RELEASE",
-			tomcatEmbedded: "org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M25",
+			// projReactorIpc: "io.projectreactor.ipc:reactor-netty:0.7.15.RELEASE",
+			projReactorIpc: "io.projectreactor.netty:reactor-netty:1.1.13", 
+			tomcatEmbedded: "org.apache.tomcat.embed:tomcat-embed-core:$twsVersion",
 	]
 
 	db = [
-			mysql : "mysql:mysql-connector-java:$mysqlVersion",
+			mysql : "com.mysql:mysql-connector-j:$mysqlVersion",
 			derby : "org.apache.derby:derby:$derbyVersion",
 			dbcp2 : "org.apache.commons:commons-dbcp2:$dbcpVersion",
 			dbcp  : "commons-dbcp:commons-dbcp:1.4",
 			h2    : "com.h2database:h2:$h2Version",
-			hsqldb: "org.hsqldb:hsqldb:2.4.0"
+			hsqldb: "org.hsqldb:hsqldb:2.7.2"
 	]
 }
 
@@ -184,10 +187,10 @@ subprojects {
 	repositories {
 		mavenLocal()
 		mavenCentral()
-		maven { url "http://repo.spring.io/release" }
-		maven { url "http://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/release" }
+		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/libs-snapshot" }
-		maven { url "http://repo.spring.io/milestone" }
+		maven { url "https://repo.spring.io/milestone" }
 		maven { url "https://repo.spring.io/libs-milestone" }
 	}
 

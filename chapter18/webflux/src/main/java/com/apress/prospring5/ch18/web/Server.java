@@ -11,7 +11,8 @@ import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter;
 import org.springframework.http.server.reactive.ServletHttpHandlerAdapter;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.ipc.netty.http.server.HttpServer;
+import reactor.netty.DisposableServer;
+import reactor.netty.http.server.HttpServer;
 
 import static org.springframework.web.reactive.function.BodyInserters.fromObject;
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
@@ -48,9 +49,14 @@ public class Server {
 		RouterFunction<ServerResponse> route = routingFunction();
 		HttpHandler httpHandler = toHttpHandler(route);
 
-		ReactorHttpHandlerAdapter adapter = new ReactorHttpHandlerAdapter(httpHandler);
-		HttpServer server = HttpServer.create(HOST, PORT);
-		server.newHandler(adapter).block();
+		ReactorHttpHandlerAdapter adapter = new ReactorHttpHandlerAdapter(httpHandler); 
+		DisposableServer server =
+				HttpServer.create()
+				          .host(HOST) 
+				          .port(PORT)
+				          .handle(adapter)
+				          .bind()
+				          .block() ; 
 	}
 
 	public void startTomcatServer() throws LifecycleException {
